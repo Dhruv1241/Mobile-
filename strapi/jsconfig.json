@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "nodenext",
+    "target": "ES2021",
+    "checkJs": true,
+    "allowJs": true
+  }
+}
+
+// a6ae017fc187a44de6061d54d36eb36b1f151cf8dc52dc7f22e9a4f30e03db7a1ae4e2b7868a04964044158ad887012bf9f9ddb417fe6716083aee0377901d7c7d72f51478481a1142a676520e36fab1ea03dad1aa233e8f7ee40931e1ec41626b5a330c3ca9abe94e39bbd7db7764d86cdb5e1bd0bb44ee4b61338c58d20e9e

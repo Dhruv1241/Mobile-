@@ -1,0 +1,35 @@
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* background-color: yellow; */
+}
+
+.footer-contain{
+    width: 80%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.footer .col{
+    width: 100%;
+}
+.footer .title{
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 30px;
+}
+.col2 .c-item{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+}
+.text{
+    display: flex;
+    font-weight: 500;
+    /* background-color: red; */
+    justify-content: left
+}

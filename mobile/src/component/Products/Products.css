@@ -1,0 +1,26 @@
+.products-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: red; */
+}
+.sec-heading{
+    font-size: 20px;
+    /* margin-top: 20%; */
+    /* background-color: red; */
+}
+.products{
+    box-sizing: border-box;
+    padding: 10px;
+    max-width: 800px;
+    /* margin-top: 20px; */
+    /* box-shadow: 1px 1px 3px black; */
+    /* background-color: yellow; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    /* padding: 10px; */
+    align-items: center;
+}

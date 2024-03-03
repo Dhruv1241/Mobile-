@@ -1,0 +1,88 @@
+.main-pannel {
+  max-width: 350px;
+  height: 100%;
+  background-color: white;
+  position: fixed;
+  top: 48px;
+  left: 1065px;
+  color: black;
+  z-index: 9999;
+  transform: translateX(100%);
+  animation: slidecart 0.3s ease forwards;
+  /* background-color: red; */
+  box-shadow: 1px 1px 10px black;
+}
+
+.cartheader {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  gap: 160px;
+}
+.heading {
+  font-weight: bold;
+  font-size: 18px;
+}
+.close-btn {
+  font-size: 30px;
+}
+
+.empty-card {
+  display: flex;
+  width: 100%;
+  margin-top: 100px;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+}
+.empty-card svg {
+  font-size: 120px;
+  opacity: 0.1;
+}
+.empty-card span {
+  font-size: 20px;
+}
+
+.return {
+  width: 40%;
+  font-size: 15px;
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+}
+@keyframes slidecart {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.cartfooter {
+  width: 100%;
+  margin-top: 20px;
+}
+.subtotal {
+  display: flex;
+  gap: 100px;
+  font-size: 17px;
+  justify-content: space-around;
+  color: black;
+}
+
+.subbtn{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.subbtn .checkout{
+    width: 90%;
+    padding: 8px;
+    color: white;
+    font-size: 16px;
+    border: none;
+    background-color: purple;
+}
