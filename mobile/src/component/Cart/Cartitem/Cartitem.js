@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { Contex } from "../../UI/Contex";
 // import cart1 from './assets/cat1'
 export default function Cartitem() {
-  const {  removeTocart, cartItem, cartproductQuantity } = useContext(Contex);
+  const { removeTocart, cartItem, cartproductQuantity } = useContext(Contex);
   return (
     <div className="cart-product">
       {cartItem.map((item) => (
@@ -15,17 +15,20 @@ export default function Cartitem() {
           </div>
           <div className="product-detail">
             <span className="product-name">{item.attributes.Title}</span>
-            <MdClose className="closebtn" onClick={()=>{
-              removeTocart(item)
-            }}/>
+            <MdClose
+              className="closebtn"
+              onClick={() => {
+                removeTocart(item);
+              }}
+            />
             <div className="quantity-item">
-              <span onClick={()=>cartproductQuantity('dec',item)}>-</span>
+              <span onClick={() => cartproductQuantity("dec", item)}>-</span>
               <span>{item.attributes.quantity}</span>
-              <span onClick={()=>cartproductQuantity('inc',item)}>+</span>
+              <span onClick={() => cartproductQuantity("inc", item)}>+</span>
             </div>
             <div className="text-quantity">
               <span>{item.attributes.quantity}</span>
-              <span>X</span>
+              <span className="crtcls">X</span>
               <span>{item.attributes.price * item.attributes.quantity}</span>
             </div>
           </div>

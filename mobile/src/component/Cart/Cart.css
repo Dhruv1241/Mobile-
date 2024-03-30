@@ -1,10 +1,10 @@
 .main-pannel {
-  max-width: 350px;
+  max-width: 250px;
   height: 100%;
   background-color: white;
   position: fixed;
   top: 48px;
-  left: 1065px;
+  left: 975px;
   color: black;
   z-index: 9999;
   transform: translateX(100%);
@@ -25,6 +25,7 @@
 }
 .close-btn {
   font-size: 30px;
+  /* background-color: aqua; */
 }
 
 .empty-card {

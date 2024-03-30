@@ -1,35 +1,42 @@
 import { createContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged
+  
+} from "firebase/auth";
+// import { getDatabase, set, ref } from "firebase/database";
+import {firebaseapp} from './FirebaseInit'
 export const Contex = createContext();
+const auth = getAuth(firebaseapp);
+// const database = getDatabase(firebaseapp);
 const AppContex = ({ children }) => {
   const [categori, setcategori] = useState();
   const [product, setproduct] = useState();
   const [cartItem, setcartItem] = useState([]);
   const [cartQuantity, setcartQuantity] = useState();
   const [cartSubTotal, setcartSubTotal] = useState();
-  const [token, setToken] = useState(null)
+  const [user, setuser] = useState(null)
   const location = useLocation();
+  const islogedIn = user ? true : false
 
-  const userisLogedin = !!token;
-
-  const loginHandler =(Token)=>{
-    setToken(Token)
-  }
-  const logoutHandler =()=>{
-    setToken(null)
-  }
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  },[location])
   useEffect(() => {
-    let count = 0
-    cartItem.map(item=>count+=item.attributes.quantity)
-    setcartQuantity(count)
+    window.scrollTo(0, 0);
+  }, [location]);
+  useEffect(() => {
+    let count = 0;
+    cartItem.map((item) => (count += item.attributes.quantity));
+    setcartQuantity(count);
 
     let subTotal = 0;
-    cartItem.map(item => subTotal += item.attributes.price * item.attributes.quantity);
-    setcartSubTotal(subTotal)
+    cartItem.map(
+      (item) => (subTotal += item.attributes.price * item.attributes.quantity)
+    );
+    setcartSubTotal(subTotal);
   }, [cartItem]);
 
   const addTocart = (product, quantity) => {
@@ -59,6 +66,32 @@ const AppContex = ({ children }) => {
     }
     setcartItem(items);
   };
+
+  const LoginHandler = (Email, Password) => {
+    createUserWithEmailAndPassword(auth, Email, Password);
+  };
+
+  const userSingin = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // const putData = (key, data) => {
+  //   set(ref(database, key), data);
+  // };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, user=>{
+      if(user){
+        setuser(user)
+      }else{
+        setuser(null)
+      }
+    })
+      
+    
+      
+  }, []);
+
   return (
     <Contex.Provider
       value={{
@@ -75,12 +108,12 @@ const AppContex = ({ children }) => {
         addTocart,
         removeTocart,
         cartproductQuantity,
-        token: '',
-        loginHandler,
-        logoutHandler,
-        userisLogedin
+        LoginHandler,
+        islogedIn,
+        userSingin,
       }}
     >
+      <ToastContainer />
       {children}
     </Contex.Provider>
   );

@@ -7,6 +7,7 @@ import Cart from '../Cart/Cart';
 import {TbSearch} from 'react-icons/tb'
 import { useContext } from 'react';
 import { Contex } from '../UI/Contex';
+// import Category from '../category/Category';
 export default function Header() {
   const [showCart, setshowCart] = useState()
   const {cartQuantity} = useContext(Contex)
@@ -16,8 +17,6 @@ export default function Header() {
         <div className='navdiv'>
           <ul className='ul'>
               <NavLink to='/' className='link'>Home</NavLink>
-              <NavLink to='product' className='link'>about</NavLink>
-              <NavLink to='/category/:id' className='link'>Category</NavLink>
               <AiOutlineShoppingCart onClick={()=>setshowCart(true)} className='icon'/>
               {!! cartQuantity && <span className='span'>{cartQuantity}</span>}
               <TbSearch/>
